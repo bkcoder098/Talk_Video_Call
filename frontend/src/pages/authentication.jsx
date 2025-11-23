@@ -55,8 +55,8 @@ export default function Authentication() {
         setPassword("")
       }
     }catch (err) {
-  // console.log(err)
-  // return;
+      
+     console.log(err);
   let message = (err.response.data.message);
   setError(message);
   
