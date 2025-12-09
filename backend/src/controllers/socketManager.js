@@ -59,7 +59,7 @@ let timeOnline = {};
             .reduce(([room, isFound], [roomKey, roomValue])=>{
 
 
-                if(!isFound &&roomValue.includes(socket.id)){
+                if(!isFound && roomValue.includes(socket.id)){
                     return [roomKey, true];
                 }
 
@@ -97,7 +97,7 @@ let timeOnline = {};
                         key = k
 
                         for( let a = 0; a < connections[key].lngth; ++a){
-                            io.to(connections)[key][a].emit("user-left", socket.id);
+                            io.to(connections[key][a]).emit("user-left", socket.id);
                         }
 
                         var index = connections[key].indexOf(socket.id)

@@ -1,9 +1,8 @@
-import React from 'react';
 import axios from "axios";
 import httpStatus from "http-status";
 import { createContext, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { StatusCodes } from "http-status-codes";
+
 import server from '../environment';
 
 
@@ -50,8 +49,8 @@ export const AuthProvider = ({children}) => {
 
             if(request.status === httpStatus.OK) {
                localStorage.setItem("token", request.data.token);
-
-               return { success: true };
+               router("/home")
+            //    return { success: true };
             }
 
         }catch(err){
